@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+    <! -- Sivun setup tiedot -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Älyovikellon käyttöliittymä">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ovikii - älyovikello</title>
+
+  <! -- Sivun tyylien setup -->
+  <link rel="stylesheet"
+  href="https://unpkg.com/material-components-web@0.39.3/dist/material-components-web.min.css">
+  <script src="https://unpkg.com/material-components-web@0.39.3/dist/material-components-web.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+<div>
+  <div class="header"></div>
+  <main></main>
+
+  <! -- Sivun nimen setup -->
+  <div class="dialogs"></div>
+  <div hidden class="template" id="header-base">
+      <header id="site-header" class="mdc-toolbar mdc-toolbar--fixed">
+        <div id="title" class="mdc-toolbar__row mdc-layout-grid">
+          <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+            <span class="mdc-toolbar__title">Ovikii - älyovikellon ottamat kuvat</span>
+          </section>
+        </div>
+        <div id="section-header" data-fir-if="hasSectionHeader"></div>
+      </header>
+  </div>
+  <div hidden class="template" id="main-adjusted">
+    <div id="message-cards-container" class="mdc-layout-grid mdc-toolbar-fixed-adjust">
+      <div id="cards" class="mdc-layout-grid__inner"></div>
+    </div>
+  </div>
+  <div hidden class="template" id="main">
+  </div>
+  <div hidden class="template" id="filter-display">
+  </div>
+  <div hidden class="template" id="rating"></div>
+  <span hidden class="template" id="price"></span>
+
+  <! -- Sivun kuvien display-järjestyksen teko ja tietojen sijoittaminen niihin -->
+  <div hidden class="template mdc-layout-grid__cell mdc-layout-grid__cell--span-4" id="restaurant-card">
+    <div class="location-card mdc-card mdc-shadow--2dp" data-fir-click="go_to_restaurant">
+      <div class="mdc-card__title" data-fir-style="backgroundImage:photo"></div>
+      <div class="mdc-card__supporting-text">
+        <h2 data-fir-content="name">...</h2>
+        <span class="info price"></span>
+        <div class="details">
+          <div class="rating"></div>
+        </div>
+        <div class="details">
+          <span class="info" data-fir-content="category"></span>
+          <span class="light">●</span>
+          <span class="info" data-fir-content="city"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <i hidden class="template material-icons" id="star-border-icon">star_border</i>
+  <i hidden class="template material-icons" id="star-icon">star</i>
+</div>
+
+<! -- Sivun käyttämien scriptien kutsuminen -->
+<script src="/__/firebase/9.6.0/firebase-app-compat.js"></script>
+<script src="/__/firebase/9.6.0/firebase-auth-compat.js"></script>
+<script src="/__/firebase/9.6.0/firebase-firestore-compat.js"></script>
+<script src="/__/firebase/init.js"></script>
+<script src="//unpkg.com/navigo@6"></script>
+<script src="/scripts/FriendlyEats.js"></script>
+<script src="/scripts/FriendlyEats.View.js"></script>
+<script src="/scripts/FriendlyEats.Data.js"></script>
+</body>
+</html>
